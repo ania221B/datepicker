@@ -1,0 +1,248 @@
+/* ===============
+CUSTOM PROPERTIES
+================*/
+:root {
+  /* fonts */
+  --ff-primary: "Cabin", sans-serif;
+  --ff-secondary: "Roboto Condensed", sans-serif;
+
+  --fs-300: 1.25rem;
+  --fs-400: 1.5rem;
+  --fs-600: 1.75rem;
+  --fs-900: 3rem;
+
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-700: 700;
+
+  /* colors */
+
+  --clr-neutral-100: #fff;
+  --clr-neutral-200: #d8d8d8;
+  --clr-neutral-300: #8d7b74;
+  --clr-neutral-400: #5e443a;
+  --clr-neutral-500: #351e15;
+
+  --clr-primary-100: hsl(229, 62%, 89%);
+  --clr-primary-200: hsl(229, 62%, 79%);
+  --clr-primary-300: hsl(229, 62%, 69%);
+  --clr-primary-400: hsl(229, 62%, 59%);
+  --clr-primary-500: hsl(229, 62%, 49%);
+  --clr-primary-600: hsl(229, 62%, 39%);
+  --clr-primary-700: hsl(229, 62%, 29%);
+  --clr-primary-800: hsl(229, 62%, 19%);
+  --clr-primary-900: hsl(229, 62%, 9%);
+
+  --clr-accent-300: hsl(49, 84%, 87%);
+  --clr-accent-400: hsl(49, 94%, 69%);
+  --clr-accent-500: hsl(49, 100%, 50%);
+  --clr-accent-700: hsl(38, 100%, 66%);
+
+  /* spacing */
+  --offset-small: 2rem;
+  --offset-medium: 3rem;
+
+  /* spacing */
+  --br: 1rem;
+}
+/* ===============
+RESET
+================*/
+
+/* Sets box sizing rules */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+/* Sets root core defaults */
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Sets body core default */
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+
+  font-family: var(--ff-primary);
+  font-size: var(--fs-400);
+  font-weight: var(--fw-400);
+  color: var(--clr-primary-800);
+  background-color: var(--clr-primary-100);
+}
+
+/* Resets margin rules */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Removes unnecessary space caused by line height */
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.1;
+}
+
+/* Gives a elements without a class default styling */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Makes images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Removes list styling from ol and ul elements with the role of list */
+ol[role="list"] ul[role="list"] {
+  list-style: none;
+}
+
+/* Inherits fonts for input elements and buttons */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* Removes animations, transitions and scroll effect for people who prefer not to see those */
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::after,
+  *::before {
+    animation-iteration-count: 1 !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto;
+  }
+}
+
+/* ===============
+UTILITIES
+================*/
+
+.container {
+  max-width: min(calc(100% - var(--offset-small) * 2), 40rem);
+  margin-inline: auto;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.75rem;
+}
+
+.bg-white {
+  background-color: var(--clr-neutral-100);
+}
+
+.rounded-corners {
+  border-radius: var(--br);
+}
+
+/* ================
+DATEPICKER LAYOUT
+================== */
+
+.button {
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+}
+
+.button-nav {
+  position: absolute;
+}
+
+.button-prev {
+  inset: var(--offset-medium) auto auto var(--offset-medium);
+}
+.button-next {
+  inset: var(--offset-medium) var(--offset-medium) auto auto;
+}
+
+.datepicker {
+  max-width: 32rem;
+}
+
+.datepicker__calendar {
+  padding-block: 3rem;
+  padding-inline: 3rem;
+  position: relative;
+}
+
+.calendar__year-month > * {
+  grid-column: 1/ -1;
+  justify-self: center;
+}
+
+.calendar__year-month > time {
+  font-size: var(--fs-600);
+  font-weight: var(--fw-700);
+  color: var(--clr-primary-800);
+}
+
+.calendar__day-of-week > * {
+  font-size: var(--fs-300);
+  font-weight: var(--fw-700);
+  font-variant: small-caps;
+  text-align: center;
+  color: var(--clr-primary-200);
+}
+
+.calendar__day > *:first-child {
+  grid-column: 7;
+}
+
+.calendar__day > * {
+  border-radius: 50%;
+  color: var(--clr-primary-600);
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+}
+
+.calendar__day > *::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-color: var(--clr-accent-300);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+
+.calendar__day > *:hover::after,
+.calendar__day > *:focus::after {
+  opacity: 1;
+}
