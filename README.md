@@ -1,2 +1,2 @@
 # datepicker
-Simple datepicker component based from Learn JavaScript course
+Simple datepicker component from Learn JavaScript course
