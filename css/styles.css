@@ -33,6 +33,13 @@ CUSTOM PROPERTIES
   --clr-primary-800: hsl(229, 62%, 19%);
   --clr-primary-900: hsl(229, 62%, 9%);
 
+  --clr-secondary-100: hsl(342, 74%, 95%);
+  --clr-secondary-200: hsl(342, 74%, 85%);
+  --clr-secondary-300: hsl(342, 74%, 80%);
+  --clr-secondary-400: hsl(342, 74%, 70%);
+  --clr-secondary-500: hsl(342, 74%, 60%);
+  --clr-secondary-900: hsl(342, 74%, 40%);
+
   --clr-accent-300: hsl(49, 84%, 87%);
   --clr-accent-400: hsl(49, 94%, 69%);
   --clr-accent-500: hsl(49, 100%, 50%);
@@ -40,10 +47,11 @@ CUSTOM PROPERTIES
 
   /* spacing */
   --offset-small: 2rem;
-  --offset-medium: 3rem;
+  --padding-medium: 2em;
 
   /* spacing */
-  --br: 1rem;
+  --br-small: 0.25em;
+  --br: 0.5em;
 }
 /* ===============
 RESET
@@ -161,8 +169,18 @@ UTILITIES
   background-color: var(--clr-neutral-100);
 }
 
-.rounded-corners {
-  border-radius: var(--br);
+.visually-hidden {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
 }
 
 /* ================
@@ -183,20 +201,49 @@ DATEPICKER LAYOUT
   position: absolute;
 }
 
+.button-nav svg {
+  color: var(--clr-primary-600);
+}
+
+.button-nav path {
+  fill: var(--clr-primary-600);
+}
+
+.button-nav:hover svg,
+.button-nav:focus svg {
+  color: var(--clr-secondary-400);
+}
+.button-nav:hover path,
+.button-nav:focus path {
+  fill: var(--clr-secondary-400);
+}
+
 .button-prev {
-  inset: var(--offset-medium) auto auto var(--offset-medium);
+  inset: var(--padding-medium) auto auto var(--padding-medium);
 }
 .button-next {
-  inset: var(--offset-medium) var(--offset-medium) auto auto;
+  inset: var(--padding-medium) var(--padding-medium) auto auto;
 }
 
 .datepicker {
   max-width: 32rem;
 }
 
+.datepicker__input > input {
+  border: none;
+  border-radius: var(--br-small);
+  padding-inline: 0.75em;
+  padding-block: 0.5em;
+}
+
+.datepicker__input > input::placeholder {
+  color: var(--clr-primary-500);
+}
+
 .datepicker__calendar {
-  padding-block: 3rem;
-  padding-inline: 3rem;
+  padding-block: var(--padding-medium);
+  padding-inline: var(--padding-medium);
+  border-radius: var(--br);
   position: relative;
 }
 
@@ -236,7 +283,7 @@ DATEPICKER LAYOUT
   position: absolute;
   inset: 0;
 
-  background-color: var(--clr-accent-300);
+  background-color: var(--clr-secondary-100);
   border-radius: inherit;
   z-index: -1;
   opacity: 0;
@@ -246,4 +293,8 @@ DATEPICKER LAYOUT
 .calendar__day > *:hover::after,
 .calendar__day > *:focus::after {
   opacity: 1;
+}
+
+.calendar__day > .is-selected {
+  background-color: var(--clr-secondary-200);
 }
