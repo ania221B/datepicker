@@ -11,80 +11,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
     <title>Datepicker</title>
 
 </head>
 
 <body>
     <main>
-        <form class="container" action="">
+        <form class="form container" action="" autocomplete="off">
             <header>
-                <h1>Datepicker</h1>
-                <p>Pick the date you want. Select the field to display the datepicker</p>
+                <h1 class="title">Datepicker</h1>
+                <p>Pick the date you want. Select the field to display the datepicker.</p>
             </header>
 
-            <div class="datepicker">
-                <div class="datepicker__input">
-                    <label class="visually-hidden" for="date">Select the date:</label>
-                    <input class="bg-white" type="text" id="date" name="date" placeholder="DD/MM/YYYY">
-                </div>
-                <div class="datepicker__calendar bg-white">
-                    <button class="button button-nav button-prev">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"></path>
-                        </svg>
-                    </button>
-                    <button class="button button-nav button-next">
-                        <svg style="color: #263ca1;" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" fill="#263ca1"></path>
-                        </svg>
-                    </button>
-                    <div class="calendar__year-month main-grid">
-                        <time datetime="2023-01-21">January 2023</time>
-                    </div>
-                    <div class="calendar__day-of-week main-grid">
-                        <div>Su</div>
-                        <div>Mo</div>
-                        <div>Tu</div>
-                        <div>We</div>
-                        <div>Th</div>
-                        <div>Fr</div>
-                        <div>Sa</div>
-                    </div>
-                    <div class="calendar__day main-grid">
-                        <button class="button is-selected">1</button>
-                        <button class="button">2</button>
-                        <button class="button">3</button>
-                        <button class="button">4</button>
-                        <button class="button">5</button>
-                        <button class="button">6</button>
-                        <button class="button">7</button>
-                        <button class="button">8</button>
-                        <button class="button">9</button>
-                        <button class="button">10</button>
-                        <button class="button">11</button>
-                        <button class="button">12</button>
-                        <button class="button">13</button>
-                        <button class="button">14</button>
-                        <button class="button">15</button>
-                        <button class="button">16</button>
-                        <button class="button">17</button>
-                        <button class="button">18</button>
-                        <button class="button">19</button>
-                        <button class="button">20</button>
-                        <button class="button">21</button>
-                        <button class="button">22</button>
-                        <button class="button">23</button>
-                        <button class="button">24</button>
-                        <button class="button">25</button>
-                        <button class="button">26</button>
-                        <button class="button">27</button>
-                        <button class="button">28</button>
-                        <button class="button">29</button>
-                        <button class="button">30</button>
-                        <button class="button">31</button>
-                    </div>
-                </div>
+            <div class="input-container">
+                <label class="visually-hidden" for="date">Select the date:</label>
+                <input type="text" id="date" name="date" placeholder="DD/MM/YYYY">
             </div>
         </form>
 
