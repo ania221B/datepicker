@@ -3,8 +3,8 @@ CUSTOM PROPERTIES
 ================*/
 :root {
   /* fonts */
-  --ff-primary: "Cabin", sans-serif;
-  --ff-secondary: "Roboto Condensed", sans-serif;
+  --ff-primary: "Roboto Condensed", sans-serif;
+  --ff-secondary: "Cabin", sans-serif;
 
   --fs-300: 1.25rem;
   --fs-400: 1.5rem;
@@ -165,8 +165,9 @@ UTILITIES
   gap: 0.5rem;
 }
 
-.bg-white {
-  background-color: var(--clr-neutral-100);
+.title {
+  font-family: var(--ff-secondary);
+  font-variant: small-caps;
 }
 
 .visually-hidden {
@@ -202,6 +203,7 @@ DATEPICKER LAYOUT
 }
 
 .button-nav svg {
+  width: 2.5rem;
   color: var(--clr-primary-600);
 }
 
@@ -225,40 +227,44 @@ DATEPICKER LAYOUT
   inset: var(--padding-medium) var(--padding-medium) auto auto;
 }
 
-.datepicker {
-  max-width: 32rem;
-}
-
-.datepicker__input > input {
+.input-container > input {
   border: none;
   border-radius: var(--br-small);
   padding-inline: 0.75em;
   padding-block: 0.5em;
+  background-color: var(--clr-neutral-100);
 }
 
-.datepicker__input > input::placeholder {
+.input-container > input::placeholder {
   color: var(--clr-primary-500);
 }
 
-.datepicker__calendar {
+.datepicker {
+  max-width: 32rem;
   padding-block: var(--padding-medium);
   padding-inline: var(--padding-medium);
   border-radius: var(--br);
+  background-color: var(--clr-neutral-100);
   position: relative;
 }
 
 .calendar__year-month > * {
+  font-family: var(--ff-secondary);
   grid-column: 1/ -1;
   justify-self: center;
+  padding-block-end: 0.75em;
 }
 
 .calendar__year-month > time {
   font-size: var(--fs-600);
+  font-variant: small-caps;
   font-weight: var(--fw-700);
   color: var(--clr-primary-800);
 }
 
 .calendar__day-of-week > * {
+  padding-block-end: 1.25em;
+  font-family: var(--ff-secondary);
   font-size: var(--fs-300);
   font-weight: var(--fw-700);
   font-variant: small-caps;
@@ -266,11 +272,11 @@ DATEPICKER LAYOUT
   color: var(--clr-primary-200);
 }
 
-.calendar__day > *:first-child {
-  grid-column: 7;
+.calendar__days > *:first-child {
+  grid-column: var(--data-column);
 }
 
-.calendar__day > * {
+.calendar__days > * {
   border-radius: 50%;
   color: var(--clr-primary-600);
   position: relative;
@@ -278,7 +284,7 @@ DATEPICKER LAYOUT
   isolation: isolate;
 }
 
-.calendar__day > *::after {
+.calendar__days > *::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -290,11 +296,11 @@ DATEPICKER LAYOUT
   transition: opacity 300ms ease-in-out;
 }
 
-.calendar__day > *:hover::after,
-.calendar__day > *:focus::after {
+.calendar__days > *:hover::after,
+.calendar__days > *:focus::after {
   opacity: 1;
 }
 
-.calendar__day > .is-selected {
+.calendar__days > .is-selected {
   background-color: var(--clr-secondary-200);
 }
