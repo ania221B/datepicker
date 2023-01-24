@@ -304,3 +304,8 @@ DATEPICKER LAYOUT
 .calendar__days > .is-selected {
   background-color: var(--clr-secondary-200);
 }
+
+.calendar__days > .is-selected:hover::after,
+.calendar__days > .is-selected:focus::after {
+  background-color: var(--clr-secondary-200);
+}
