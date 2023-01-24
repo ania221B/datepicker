@@ -54,7 +54,7 @@ CUSTOM PROPERTIES
   --br: 0.5em;
 
   /* shadow */
-  --box-shadow: 0.25em 0.25em 0.5em hsl(229, 62%, 9%, 0.2);
+  --box-shadow: 0.125em 0.125em 0.5em hsl(229, 62%, 9%, 0.3);
 }
 
 @media (min-width: 40em) {
@@ -172,6 +172,10 @@ textarea {
   }
 }
 
+::selection {
+  background-color: var(--clr-secondary-400);
+  color: var(--clr-neutral-100);
+}
 /* ===============
 UTILITIES
 ================*/
@@ -232,6 +236,10 @@ header {
   position: absolute;
 }
 
+.button:focus-visible {
+  outline: 0.125em dotted var(--clr-secondary-400);
+}
+
 .button-nav svg {
   width: 2.5rem;
   color: var(--clr-primary-600);
@@ -263,6 +271,11 @@ header {
   padding-inline: 0.75em;
   padding-block: 0.5em;
   background-color: var(--clr-neutral-100);
+  box-shadow: var(--box-shadow);
+}
+
+.input-container > input:focus-visible {
+  outline: 0.125em dotted var(--clr-primary-700);
 }
 
 .input-container > input::placeholder {
@@ -275,6 +288,7 @@ header {
   padding-inline: var(--padding-medium);
   border-radius: var(--br);
   background-color: var(--clr-neutral-100);
+  box-shadow: var(--box-shadow);
   position: absolute;
 }
 
