@@ -1,3 +1,5 @@
+/* globals getComputedStyle */
+
 const form = document.querySelector('.form')
 const input = form.querySelector('#date')
 const date = new Date()
