@@ -81,7 +81,18 @@ body {
   font-size: var(--fs-400);
   font-weight: var(--fw-400);
   color: var(--clr-primary-800);
-  background-color: var(--clr-primary-100);
+  background-image: radial-gradient(
+      circle at top,
+      var(--clr-primary-400),
+      var(--clr-primary-200),
+      transparent
+    ),
+    radial-gradient(
+      circle at bottom,
+      var(--clr-secondary-400),
+      var(--clr-secondary-200),
+      transparent
+    );
 }
 
 /* Resets margin rules */
@@ -240,12 +251,12 @@ DATEPICKER LAYOUT
 }
 
 .datepicker {
-  max-width: 32rem;
+  width: min(85%, 32rem);
   padding-block: var(--padding-medium);
   padding-inline: var(--padding-medium);
   border-radius: var(--br);
   background-color: var(--clr-neutral-100);
-  position: relative;
+  position: absolute;
 }
 
 .calendar__year-month > * {
