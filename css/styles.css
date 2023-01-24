@@ -6,10 +6,10 @@ CUSTOM PROPERTIES
   --ff-primary: "Roboto Condensed", sans-serif;
   --ff-secondary: "Cabin", sans-serif;
 
-  --fs-300: 1.25rem;
-  --fs-400: 1.5rem;
-  --fs-600: 1.75rem;
-  --fs-900: 3rem;
+  --fs-300: 1rem;
+  --fs-400: 1.25rem;
+  --fs-600: 1.5rem;
+  --fs-900: 2.75rem;
 
   --fw-400: 400;
   --fw-500: 500;
@@ -49,9 +49,21 @@ CUSTOM PROPERTIES
   --offset-small: 2rem;
   --padding-medium: 2em;
 
-  /* spacing */
+  /* sizes */
   --br-small: 0.25em;
   --br: 0.5em;
+
+  /* shadow */
+  --box-shadow: 0.25em 0.25em 0.5em hsl(229, 62%, 9%, 0.2);
+}
+
+@media (min-width: 40em) {
+  :root {
+    --fs-300: 1.25rem;
+    --fs-400: 1.5rem;
+    --fs-600: 1.75rem;
+    --fs-900: 3rem;
+  }
 }
 /* ===============
 RESET
@@ -176,9 +188,14 @@ UTILITIES
   gap: 0.5rem;
 }
 
+.flow > *:where(:not(:first-child)) {
+  margin-top: var(--flow-space, 1.25em);
+}
+
 .title {
   font-family: var(--ff-secondary);
   font-variant: small-caps;
+  font-weight: var(--fw-700);
 }
 
 .visually-hidden {
@@ -198,7 +215,9 @@ UTILITIES
 /* ================
 DATEPICKER LAYOUT
 ================== */
-
+header {
+  --flow-space: 0.25em;
+}
 .button {
   background: none;
   border: none;
@@ -270,7 +289,7 @@ DATEPICKER LAYOUT
   font-size: var(--fs-600);
   font-variant: small-caps;
   font-weight: var(--fw-700);
-  color: var(--clr-primary-800);
+  color: var(--clr-primary-700);
 }
 
 .calendar__day-of-week > * {
