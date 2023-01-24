@@ -105,7 +105,10 @@ function createDatepicker (input, date) {
   datepicker.classList.add('datepicker')
   datepicker.innerHTML = `${previousNextMonthButtons}
   ${calendar}`
+  datepicker.setAttribute('hidden', 'true')
 
+  const inputRect = input.getBoundingClientRect()
+  const fontSize = parseFloat(getComputedStyle(document.body)['font-size'])
   const datepickerButtons = datepicker.querySelector('.datepicker__buttons')
   const datepickerCalendarDays = datepicker.querySelector('.calendar__days')
 
@@ -149,7 +152,21 @@ function createDatepicker (input, date) {
     input.value = formattedDate
   })
 
+  datepicker.style.left = `${inputRect.left}px`
+  datepicker.style.top = `${inputRect.bottom + fontSize}px`
+
+  input.addEventListener('click', () => {
+    datepicker.removeAttribute('hidden')
+  })
+
+  document.addEventListener('click', (event) => {
+    if (event.target.closest('.datepicker')) return
+    if (event.target.closest('#date') === input) return
+
+    datepicker.setAttribute('hidden', true)
+  })
+
   return datepicker
 }
 
-form.appendChild(createDatepicker(input, date))
+document.body.appendChild(createDatepicker(input, date))
