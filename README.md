@@ -1,6 +1,6 @@
 # datepicker
 
-Simple datepicker component from Learn JavaScript course
+Simple datepicker component from [Learn JavaScript](https://learnjavascript.today/) course
 
 ## Overview
 
