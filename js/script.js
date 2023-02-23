@@ -62,7 +62,7 @@ function createDaysGridHTML (date) {
 }
 
 function datetimeToDate (datetime) {
-  const [year, month, day = 1] = datetime.split('-').map((num) => parseInt(num))
+  const [year, month, day = 1] = datetime.split('-').map(num => parseInt(num))
 
   return new Date(year, month - 1, day)
 }
@@ -71,14 +71,14 @@ function createDatepicker (input, date) {
   const datepicker = document.createElement('div')
   const previousNextMonthButtons = `
   <div class="datepicker__buttons">
-    <button class="button button-nav button-prev" type="button">
-      <svg viewBox="0 0 20 20">
+    <button aria-label="Previous month" class="button button-nav button-prev" type="button">
+      <svg aria-hidden="true" viewBox="0 0 20 20">
         <path d="M7.05 9.293L6.343 10 12 15.657l1.414-1.414L9.172 10l4.242-4.243L12 4.343z"><path/>
       </svg>
     </button>
 
-    <button class="button button-nav button-next" type="button">
-      <svg viewBox="0 0 20 20">
+    <button aria-label="Next month" class="button button-nav button-next" type="button">
+      <svg aria-hidden="true" viewBox="0 0 20 20">
         <path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z" />
       </svg>
     </button>
@@ -122,7 +122,7 @@ function createDatepicker (input, date) {
     return datetimeToDate(datetime)
   }
 
-  datepickerButtons.addEventListener('click', (event) => {
+  datepickerButtons.addEventListener('click', event => {
     if (!event.target.closest('button')) return
     const currentDate = getDatefromYearMonth()
     const year = currentDate.getFullYear()
@@ -137,7 +137,7 @@ function createDatepicker (input, date) {
     daysGrid.innerHTML = createDaysGridHTML(targetDate)
   })
 
-  datepickerCalendarDays.addEventListener('click', (event) => {
+  datepickerCalendarDays.addEventListener('click', event => {
     if (!event.target.closest('.button')) return
     const button = event.target.closest('.button')
     const buttons = [...button.parentElement.children]
@@ -149,7 +149,7 @@ function createDatepicker (input, date) {
     const day = createTwoDigitString(selectedDate.getDate())
     const formattedDate = `${day}/${month}/${year}`
 
-    buttons.forEach((button) => button.classList.remove('is-selected'))
+    buttons.forEach(button => button.classList.remove('is-selected'))
     button.classList.add('is-selected')
     input.value = formattedDate
   })
@@ -161,7 +161,7 @@ function createDatepicker (input, date) {
     datepicker.removeAttribute('hidden')
   })
 
-  document.addEventListener('click', (event) => {
+  document.addEventListener('click', event => {
     if (event.target.closest('.datepicker')) return
     if (event.target.closest('#date') === input) return
 
