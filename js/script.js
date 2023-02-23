@@ -43,7 +43,11 @@ function createDaysGridHTML (date) {
   for (let day = 1; day <= daysInAMonth; day++) {
     const dayButton = document.createElement('button')
     if (day === 1) {
-      dayButton.style.setProperty('--data-column', firstWeekdayOfMonth + 1)
+      if (firstWeekdayOfMonth !== 0) {
+        dayButton.style.setProperty('--data-column', firstWeekdayOfMonth)
+      } else {
+        dayButton.style.setProperty('--data-column', 7)
+      }
     }
     const datetimeDay = createTwoDigitString(day)
 
@@ -90,13 +94,13 @@ function createDatepicker (input, date) {
     </div>
 
     <div class="calendar__day-of-week main-grid">
-      <div>Su</div>
       <div>Mo</div>
       <div>Tu</div>
       <div>We</div>
       <div>Th</div>
       <div>Fr</div>
       <div>Sa</div>
+      <div>Su</div>
     </div>
 
     <div class="calendar__days main-grid">
